@@ -1,0 +1,62 @@
+.name {
+    border: 1px solid black;
+    outline: none;
+}
+
+.name.error {
+    border-color: red;
+}
+
+.cats,
+.dogs {
+    display: none;
+}
+
+.cats.visible,
+.dogs.visible {
+    display: inline-block;
+}
+
+.errorMessage.errorM {
+    color: green;
+    visibility: visible;
+}
+
+.greenButton {
+    background-color: green;
+}
+
+.blueButton {
+    background-color: blue;
+}
+
+.redButton {
+    background-color: red;
+    margin-left: 10px;
+
+}
+
+.greenButton.shadow,
+.redButton.shadow,
+.blueButton.shadow {
+    box-shadow: 0px 0px 0 4px black;
+}
+
+.petsColor {
+    display: none;
+}
+
+.petsColor.visibleColor {
+    display: inline-block;
+}
+
+.form {
+    width: 200px;
+}
+
+button {
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+}
+
