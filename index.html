@@ -10,14 +10,31 @@
 
 <body>
 <form method="get" action="/" class="form">
-    <p><input class="name" type="text" name="name" placeholder="Ваше имя" required>
-        <span class="errorMessage"></span>
-    </p>
-    <p>Ваш пол</p>
-    <p class="sex" >
-        <label><input type="radio" name="sex" value="male" required>Мужской</label>
-        <label><input type="radio" name="sex" value="female">Женский</label>
-    </p>
+   <div class="avatar">
+        <div class="avatar__photo">
+             <label class="avatar__photo_label">
+             <input type="file" name="photo" class="avatar__photo_input">
+                <span class="avatar__photo_span">Ваша фотография</span>
+            </label>
+        </div>
+
+            <div class="avatar__name">
+             <input class="avatar__name_input" type="text" name="name" placeholder="Ваше имя" required>
+             <span class="avatar__name_span"></span>
+            </div>
+    </div>
+
+    <p class="yourSexType">Ваш пол</p>
+    <div class="sex" >
+        <label class="sex__label">Мужской
+            <input type="radio" name="sex" value="male" required>
+            <span class="sex__label_span sex__label_span_male"></span>
+        </label>
+        <label class="sex__label">Женский
+            <input type="radio" name="sex" value="female">
+            <span class="sex__label_span sex__label_span_female"></span>
+        </label>
+    </div>
     <select name="cats" class="cats">
         <option>Выберете котика</option>
         <option>Барс</option>
@@ -29,18 +46,53 @@
         <option>Шкура</option>
         <option>Блохастый</option>
     </select>
-    <div class="petsColor" >Выберете цвет питомца
-        <input type="hidden" name="color" id="color">
-            <button type="button" value="red" class="redButton">
+    <div class="colorSwitcher">
+        <a href="#">Выберете цвет питомца</a>
+        <input type="hidden" name="color" class="colorSwitcher__input">
+        <div class="colorSwitcher__mainButton">
+            <button type="button" value="red" class="colorSwitcher__button colorSwitcher__button_red">
             </button>
-            <button type="button" value="green" class="greenButton">
+            <button type="button" value="green" class="colorSwitcher__button colorSwitcher__button_green">
             </button>
-            <button type="button" value="blue" class="blueButton">
+            <button type="button" value="blue" class="colorSwitcher__button colorSwitcher__button_blue">
             </button>
-
+        </div>
     </div>
+    <div class="mainTracker">
 
-    <input type="submit" value="Отправить">
+        <div class="mainTracker_weight">
+
+            <div class="mainTracker_weight__total">Вес
+                <span class="mainTracker_weight__total_span">
+                    <!--<input name="weight">123456-->
+
+                </span>
+                <span class="kg">кг</span>
+            </div>
+
+            <div class="mainTracker_weight__tracker">
+                <div class="mainTracker_weight__tracker_horizon">
+                    <div class="mainTracker_weight__tracker_horizon_dot">
+                        <span><span></span></span>
+                    </div>
+                    <div class="mainTracker_weight__tracker_horizon_process"></div>
+                </div>
+                <input type="range" name="weight" min="0" max="150">
+            </div>
+
+            <div class="mainTracker_weight__slider-label">
+                <div class="mainTracker_weight__slider-label-item">10кг</div>
+                <div class="mainTracker_weight__slider-label-item">35кг</div>
+                <div class="mainTracker_weight__slider-label-item">75кг</div>
+                <div class="mainTracker_weight__slider-label-item">110кг</div>
+                <div class="mainTracker_weight__slider-label-item">150кг</div>
+            </div>
+
+        </div>
+    </div>
+    <div class="sendForm">
+        <input type="submit" value="Отправить">
+    </div>
 </form>
 <script src="js.js"></script>
 </body>
