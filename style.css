@@ -2,16 +2,12 @@
     width: 200px;
 }
 
-.avatar{
-    /*border:1px solid black;*/
-}
-
 .avatar__photo {
     position: relative;
     border: 2px dashed #99a0a8;
     height: 100px;
     width: 100px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     border-radius: 8px;
     background-color: #e5ebf1;
     color: #55677d;
@@ -21,21 +17,31 @@
     color:white;
     border-color: white;
 }
+
 .avatar__photo_input {
     display:none;
 }
+
 .avatar__photo_label {
     position:absolute;
     cursor: pointer;
     font-size: 12pt;
     width: 100%;
     height: 100%;
+
+
 }
 
+/*.avatar__photo_label.object-fit_fill {*/
+    /*object-fit: fill;*/
+/*}*/
+
 .avatar__photo_span {
+
     display:block;
     text-align: center;
     padding-top:25px;
+
 }
 
 .avatar__photo.photo {
@@ -43,13 +49,20 @@
     background:none;
 }
 
-.thumb {
-    position: absolute;
-    width:100%;
-    height: 100%;
-    top:0;
-    left:0;
-}
+/*.avatar__photo_span.img { !* 17.10  начало *!*/
+    /*position:absolute;*/
+    /*width:100%;*/
+    /*height: 100%;*/
+    /*background-size:cover;*/
+/*} !* 17.10 конец *!*/
+
+/*.thumb {*/
+    /*position: absolute;*/
+    /*width:100%;*/
+    /*height: 100%;*/
+    /*top:0; !* не уверен что нужно *!*/
+    /*left:0; !* не уверен что нужно *!*/
+/*}*/
 
 .avatar__name {
     margin-top: 5px;
@@ -220,12 +233,12 @@
 
 }
 
-.mainTracker_weight__tracker input {
-    opacity: 0;
-    position: absolute;
-    width: 0;
-    height: 0;
-}
+/*.mainTracker_weight__tracker input {*/
+    /*opacity: 0;*/
+    /*position: absolute;*/
+    /*width: 0;*/
+    /*height: 0;*/
+/*}*/
 
 .mainTracker_weight__tracker .mainTracker_weight__tracker_horizon_dot {
     position: absolute;
@@ -291,4 +304,5 @@
     border-bottom: 1px solid #538c27;
     box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
 }
+
 

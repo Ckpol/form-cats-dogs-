@@ -1,3 +1,4 @@
+
 const nameErrors = [
     {
         text: 'Имя не должно содержать цифры',
@@ -10,22 +11,6 @@ const nameErrors = [
     {
         text: 'Имя должно начинаться с большой буквы',
         regExp: /^[а-яё]/
-    }
-];
-
-const PetsButtonsColors = [
-    {
-        // classValue: '.colorSwitcher__button_red',
-        colorType: 'red'
-
-    },
-    {
-        // classValue: '.colorSwitcher__button_green',
-        colorType: 'green'
-    },
-    {
-        // classValue: '.colorSwitcher__button_blue',
-        colorType: 'blue'
     }
 ];
 
@@ -50,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let horizon = document.querySelector('.mainTracker_weight__tracker_horizon');
     let dot = document.querySelector('.mainTracker_weight__tracker_horizon_dot');
     let textOfWeight = document.querySelector('.mainTracker_weight__total_span');
+    const inputWeight = document.querySelector('.mainTracker_weight__tracker input');
+    let yourPhoto = document.querySelector('.avatar__photo_label'); /// label in avatar div
 
     inputName.addEventListener('input', function(event) {
         const value = event.target.value;
@@ -99,46 +86,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    petsColor.addEventListener('click', function(event) {
-        let button = document.querySelectorAll('.colorSwitcher__button');
+    let currentColor = null;
 
-        for (let i = 0, len = button.length; i < len; i++) {
-            button[i].classList.remove('shadow');
+    petsColor.addEventListener('click', function(event) {
+
+        if(currentColor) {
+            currentColor.classList.remove('shadow');
         }
 
         let colorType = event.target.value; // red green blue
+        colorValue.value = colorType;
+        event.target.classList.add('shadow');
+        currentColor = event.target;
 
-        let isClickCorrect = PetsButtonsColors.some((item) => {
-           if (colorType === item.colorType) { // если под таргетом кнопка с значением red
-               colorValue.setAttribute('value',colorType);
-               event.target.classList.add('shadow');
-              return true;
-           }
-            return false;
-           });
+    });
 
-        });
+//////// test
 
+    let reader = new FileReader();
 
-        loadFile.addEventListener('change', function(event) {
-            let file = event.target.files; // list of files
-            let f = file[0];
-            if (!f.type.match('image.*')) {
-                alert('Только изображения')
-            }
+    loadFile.addEventListener('change', function(event) {
+        let file = event.target.files; // список файлов
+        let f = file[0]; // первый файл
 
-            photoBorder.classList.add('photo');
+        if (!f.type.match('image.*')) { // смотрим на формат. ! но если отмена - скрипт падает
+            alert('Только изображения');
+            return;
+        }
 
-            let reader = new FileReader();
+        photoBorder.classList.add('photo');
 
-            reader.onload = (function (theFile) {
-                return function (e) {
-                    spanPhoto.innerHTML = ['<img class="thumb" title="', escape(theFile.name), '" src="', e.target.result, '" />'].join('');
-                };
-            })(f);
-            reader.readAsDataURL(f);
-        });
-//
+        reader.onload = function (event) {
+            let url = event.target.result;
+
+            yourPhoto.style.background = '100% 100% no-repeat';
+            yourPhoto.style.backgroundImage = 'url(' + url + ')';
+            yourPhoto.style.backgroundSize = 'contain';
+            spanPhoto.style.display = "none";
+
+        };
+        reader.readAsDataURL(f);
+    });
+
+                                                                    //// test
+///////
 
         dot.onmousedown = function(e) {
 
@@ -160,11 +151,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     newLeft = rightEdge;
                 }
                 dot.style.left = newLeft + 'px';
-                let coord = parseInt(dot.style.left);
-                textOfWeight.innerHTML = coord;
+                // let coord = newLeft;
+                textOfWeight.innerHTML = newLeft;
             };
          document.onmouseup = function() {
                 document.onmousemove = document.onmouseup = null;
+             inputWeight.value = parseInt(dot.style.left);
+
          };
          return false; // disable selection start (cusros change)
         };
