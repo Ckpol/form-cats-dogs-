@@ -10,89 +10,93 @@
 
 <body>
 <form method="get" action="/" class="form">
-   <div class="avatar">
-        <div class="avatar__photo">
-             <label class="avatar__photo_label">
-                <input type="file" name="photo" class="avatar__photo_input">
-                <span class="avatar__photo_span">Ваша фотография</span>
+   <div class="form__avatar">
+        <div class="form__photo">
+             <label class="form__photo-label">
+                <input type="file" name="photo" class="form__photo-input">
+                <span class="form__photo-span">Ваша фотография</span>
             </label>
         </div>
 
-            <div class="avatar__name">
-             <input class="avatar__name_input" type="text" name="name" placeholder="Ваше имя" required>
-             <span class="avatar__name_span"></span>
-            </div>
+        <div class="form__name">
+             <input class="form__name-input" type="text" name="name" placeholder="Ваше имя" required>
+             <span class="form__name-error"></span>
+        </div>
     </div>
 
-    <p class="yourSexType">Ваш пол</p>
-    <div class="sex" >
-        <label class="sex__label">Мужской
+    <p class="form__p">Ваш пол</p>
+    <div class="form__sexType" >
+        <label class="form__sexType-label form__sexType-label_male">Мужской
             <input type="radio" name="sex" value="male" required>
-            <span class="sex__label_span sex__label_span_male"></span>
+            <span class="form__sexType-radio form__sexType-radio_male"></span>
         </label>
-        <label class="sex__label">Женский
+        <label class="form__sexType-label form__sexType-label_female">Женский
             <input type="radio" name="sex" value="female">
-            <span class="sex__label_span sex__label_span_female"></span>
+            <span class="form__sexType-radio form__sexType-radio_female"></span>
         </label>
     </div>
-    <select name="cats" class="cats">
+
+    <!--селекты правильно указаны с классами? -->
+    <select name="cats" class="form__select form__select_cats">
         <option>Выберете котика</option>
         <option>Барс</option>
         <option>Тимофей</option>
     </select>
 
-    <select name="dogs" class="dogs">
+    <select name="dogs" class="form__select form__select_dogs">
         <option>Выберете песика</option>
         <option>Шкура</option>
         <option>Блохастый</option>
     </select>
-    <div class="colorSwitcher">
+
+    <div class="form__colorSwitcher">
         <a href="#">Выберете цвет питомца</a>
-        <input type="hidden" name="color" class="colorSwitcher__input">
-        <div class="colorSwitcher__mainButton">
-            <button type="button" value="red" class="colorSwitcher__button colorSwitcher__button_red">
+        <input type="hidden" name="color" class="form__colorSwitcher-input">
+        <div class="form__colorSwitcher-allButtons">
+            <button type="button" value="red" class="form__colorSwitcher-button form__colorSwitcher-button_red">
             </button>
-            <button type="button" value="green" class="colorSwitcher__button colorSwitcher__button_green">
+            <button type="button" value="green" class="form__colorSwitcher-button form__colorSwitcher-button_green">
             </button>
-            <button type="button" value="blue" class="colorSwitcher__button colorSwitcher__button_blue">
+            <button type="button" value="blue" class="form__colorSwitcher-button form__colorSwitcher-button_blue">
             </button>
         </div>
     </div>
-    <div class="mainTracker mainTracker_weight">
+    <div class="form__tracker">
 
-
-
-            <div class="mainTracker_weight__total">Вес
-                <span class="mainTracker_weight__total_span">
+            <div class="form__tracker-header">Вес
+                <span class="form__tracker-span form__tracker-span_header">
                     <!--<input name="weight">123456-->
 
                 </span>
-                <span class="kg">кг</span>
+                <span class="form__tracker-span form__tracker-span_kg">кг</span>
             </div>
 
-            <div class="mainTracker_weight__tracker">
-                <div class="mainTracker_weight__tracker_horizon">
-                    <div class="mainTracker_weight__tracker_horizon_dot">
+            <div class="form__tracker-slider">
+                <div class="form__tracker-horizon">
+                    <div class="form__tracker-dot">
                         <span><span></span></span>
                     </div>
-                    <div class="mainTracker_weight__tracker_horizon_process"></div>
+                    <div class="form__tracker-process"></div>
                 </div>
                 <input type="hidden" name="weight">
             </div>
 
-            <div class="mainTracker_weight__slider-label">
-                <div class="mainTracker_weight__slider-label-item">10кг</div>
-                <div class="mainTracker_weight__slider-label-item">35кг</div>
-                <div class="mainTracker_weight__slider-label-item">75кг</div>
-                <div class="mainTracker_weight__slider-label-item">110кг</div>
-                <div class="mainTracker_weight__slider-label-item">150кг</div>
+            <div class="form__tracker-footer">
+                <div class="form__tracker-item form__tracker-item_first">10кг</div>
+                <div class="form__tracker-item form__tracker-item_second">35кг</div>
+                <div class="form__tracker-item form__tracker-item_third">75кг</div>
+                <div class="form__tracker-item form__tracker-item_fourth">110кг</div>
+                <div class="form__tracker-item form__tracker-item_fifth">150кг</div>
             </div>
 
     </div>
-    <div class="sendForm">
+
+    <div class="form__sendForm">
         <input type="submit" value="Отправить">
     </div>
+
 </form>
+
 <script src="js.js"></script>
 </body>
 

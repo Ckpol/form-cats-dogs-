@@ -17,26 +17,23 @@ const nameErrors = [
 
 document.addEventListener('DOMContentLoaded', function() {
     let isFormCorrect = false;
-    let form = document.querySelector('.form');
-    const inputName = document.querySelector('.avatar__name_input');
-    let inputNameError = document.querySelector('.avatar__name_span');
-    const sexType = document.querySelector('.sex');
-    const cats = document.querySelector('.cats');
-    const dogs = document.querySelector('.dogs');
-    const petsColor = document.querySelector('.colorSwitcher');
-    // const greenButton = document.querySelector('.colorSwitcher__mainButton :nth-child(2)');
-    // const redButton = document.querySelector('.colorSwitcher__mainButton :first-child');
-    // const blueButton = document.querySelector('.colorSwitcher__mainButton :nth-child(3)');
-    const colorValue = document.querySelector(".colorSwitcher__input");
-    const loadFile = document.querySelector('.avatar__photo_input');
-    let spanPhoto = document.querySelector('.avatar__photo_span');
-    let photoBorder = document.querySelector('.avatar__photo');
+    const form = document.querySelector('.form');
+    const inputName = document.querySelector('.form__name-input');
+    const inputNameError = document.querySelector('.form__name-error');
+    const sexType = document.querySelector('.form__sexType');
+    const cats = document.querySelector('.form__select_cats');
+    const dogs = document.querySelector('.form__select_dogs');
+    const petsColor = document.querySelector('.form__colorSwitcher');
+    const colorValue = document.querySelector(".form__colorSwitcher-input");
+    const loadFile = document.querySelector('.form__photo-input');
+    const spanPhoto = document.querySelector('.form__photo-span');
+    const photoBorder = document.querySelector('.form__photo');
     ////
-    let horizon = document.querySelector('.mainTracker_weight__tracker_horizon');
-    let dot = document.querySelector('.mainTracker_weight__tracker_horizon_dot');
-    let textOfWeight = document.querySelector('.mainTracker_weight__total_span');
-    const inputWeight = document.querySelector('.mainTracker_weight__tracker input');
-    let yourPhoto = document.querySelector('.avatar__photo_label'); /// label in avatar div
+    const horizon = document.querySelector('.form__tracker-horizon');
+    const dot = document.querySelector('.form__tracker-dot');
+    const textOfWeight = document.querySelector('.form__tracker-span_header');
+    const inputWeight = document.querySelector('.form__tracker-slider input');
+    const yourPhoto = document.querySelector('.form__photo-label'); /// label in avatar div
 
     inputName.addEventListener('input', function(event) {
         const value = event.target.value;
@@ -105,6 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let reader = new FileReader();
 
+    reader.onload = function (event) {
+        let url = event.target.result;
+        yourPhoto.style.backgroundImage = 'url(' + url + ')';
+    };
+
     loadFile.addEventListener('change', function(event) {
         let file = event.target.files; // список файлов
         let f = file[0]; // первый файл
@@ -115,61 +117,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         photoBorder.classList.add('photo');
+        spanPhoto.classList.add('photo');
 
-        reader.onload = function (event) {
-            let url = event.target.result;
-
-            yourPhoto.style.background = '100% 100% no-repeat';
-            yourPhoto.style.backgroundImage = 'url(' + url + ')';
-            yourPhoto.style.backgroundSize = 'contain';
-            spanPhoto.style.display = "none";
-
-        };
         reader.readAsDataURL(f);
     });
 
-                                                                    //// test
-///////
+    dot.addEventListener('mousedown', clickMouse);
 
-        dot.onmousedown = function(e) {
+    function clickMouse (event) {
 
-            let dotMove = getCoords(dot);
-            let shiftX = e.pageX - dotMove.left; // только по горизонтали
+       let dotMove = getCoords(dot); // расстояние "прямоугольника"
+       let shiftX = event.pageX - dotMove.left; // разница между Х относительно документа и прямоугольника элемента
+       let horizonMove = getCoords(horizon);
 
-            let horizonMove = getCoords(horizon);
+       dot.addEventListener('mousemove', mouseMove);
 
-            document.onmousemove = function(e) {
+       function mouseMove(event) {
+           let newLeft = event.pageX - shiftX - horizonMove.left; // левая часть horizon
 
-                let newLeft = e.pageX - shiftX - horizonMove.left;
+           if (newLeft < 0) {
+               newLeft = 0;
+           }
 
-                if (newLeft < 0) {
-                    newLeft = 0;
-                }
-                let rightEdge = horizon.offsetWidth - dot.offsetWidth;
+           let rightEdge = horizon.offsetWidth - dot.offsetWidth;
 
-                if(newLeft > rightEdge) {
-                    newLeft = rightEdge;
-                }
-                dot.style.left = newLeft + 'px';
-                // let coord = newLeft;
-                textOfWeight.innerHTML = newLeft;
-            };
-         document.onmouseup = function() {
-                document.onmousemove = document.onmouseup = null;
-             inputWeight.value = parseInt(dot.style.left);
+           if (newLeft > rightEdge) {
+               newLeft = rightEdge;
+           }
 
-         };
-         return false; // disable selection start (cusros change)
+
+           dot.style.left = newLeft + 'px';
+           let coord = newLeft;
+           textOfWeight.innerHTML = Math.round(newLeft);
+
+           dot.addEventListener('mouseleave', function(event){
+
+               if(event) {
+                   inputWeight.value = parseInt(dot.style.left);
+                   dot.removeEventListener('mousemove', mouseMove);
+               }
+           });
+       }
+
+        dot.addEventListener('mouseup', function (event) {
+            inputWeight.value = parseInt(dot.style.left);
+            dot.removeEventListener('mousemove', mouseMove);
+            event.preventDefault();
+        });
+
+        return false;
+
+    }
+
+    function getCoords(elem) {
+        let box = elem.getBoundingClientRect();
+
+        return {
+            top: box.top + pageYOffset,
+            left: box.left + pageXOffset
         };
+    }
 
-        function getCoords(elem) {
-            let box = elem.getBoundingClientRect();
+    dot.ondragstart = function() {
+        return false;
+    };
 
-            return {
-                top: box.top + pageYOffset,
-                left: box.left + pageXOffset
-            };
-        }
-        ///
+
  });
 

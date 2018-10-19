@@ -2,105 +2,95 @@
     width: 200px;
 }
 
-.avatar__photo {
+.form__photo {
     position: relative;
     border: 2px dashed #99a0a8;
     height: 100px;
     width: 100px;
-    /*overflow: hidden;*/
     border-radius: 8px;
     background-color: #e5ebf1;
     color: #55677d;
 }
-.avatar__photo:hover {
+
+.form__photo:hover {
     background-color: #5181b8;
     color:white;
     border-color: white;
 }
 
-.avatar__photo_input {
+.form__photo.photo {
+    border:none;
+    background:none;
+}
+
+.form__photo-input {
     display:none;
 }
 
-.avatar__photo_label {
+.form__photo-label {
     position:absolute;
     cursor: pointer;
     font-size: 12pt;
     width: 100%;
     height: 100%;
-
-
+    background: 100% 100% no-repeat;
+    background-size: contain;
 }
 
-/*.avatar__photo_label.object-fit_fill {*/
-    /*object-fit: fill;*/
-/*}*/
-
-.avatar__photo_span {
-
+.form__photo-span {
     display:block;
     text-align: center;
     padding-top:25px;
-
+}
+.form__photo-span.photo {
+    display:none;
 }
 
-.avatar__photo.photo {
-    border:none;
-    background:none;
-}
 
-/*.avatar__photo_span.img { !* 17.10  начало *!*/
-    /*position:absolute;*/
-    /*width:100%;*/
-    /*height: 100%;*/
-    /*background-size:cover;*/
-/*} !* 17.10 конец *!*/
 
-/*.thumb {*/
-    /*position: absolute;*/
-    /*width:100%;*/
-    /*height: 100%;*/
-    /*top:0; !* не уверен что нужно *!*/
-    /*left:0; !* не уверен что нужно *!*/
-/*}*/
-
-.avatar__name {
+.form__name {
     margin-top: 5px;
 }
 
-.avatar__name_input {
+.form__name-input {
     border: 1px solid black;
     outline: none;
     font-size:14px;
 }
 
-.avatar__name_input.error {
+.form__name-input.error {
     border-color: red;
 }
 
-.yourSexType {
+.form__name-error.textErrorMessage {
+    color: #55677d;
+    visibility: visible;
+}
+
+.form__p {
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.sex {
+
+.form__sexType {
     display: block;
     padding-bottom: 10px;
 }
 
-.sex input {
+.form__sexType input {
     opacity: 0;
     position: absolute;
     height: 0;
     width: 0;
 }
 
-.sex__label {
+.form__sexType-label {
     position: relative;
     cursor: pointer;
     padding-left: 23px;
-
 }
-.sex__label_span {
+
+.form__sexType-radio {
     position: absolute;
     cursor: pointer;
     height: 20px;
@@ -111,25 +101,26 @@
     left:0;
 }
 
-.sex__label:hover input ~ .sex__label_span {
+
+.form__sexType-label:hover input ~ .form__sexType-radio {
     background-color: #FCE388;
 }
 
-.sex__label input:checked ~ .sex__label_span {
-    background-color: #F9D443;
+.form__sexType-label input:checked ~ .form__sexType-radio {
+    background-color: #f99b01;
 }
 
-.sex__label_span:after {
+.form__sexType-radio:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-.sex__label input:checked ~ .sex__label_span:after {
+.form__sexType-label input:checked ~ .form__sexType-radio:after {
     display: block;
 }
 
-.sex__label .sex__label_span:after {
+.form__sexType-label .form__sexType-radio:after {
     top: 5px;
     left: 5px;
     width: 10px;
@@ -138,109 +129,92 @@
     background: #7E620C;
 }
 
-.cats,
-.dogs {
+
+.form__select {
     display: none;
     margin-top:5px;
     margin-bottom: 5px;
 }
 
-.cats.visible,
-.dogs.visible {
+
+.form__select.visible {
     display: inline-block;
 }
 
-.avatar__name_span.textErrorMessage {
-    color: #55677d;
-    visibility: visible;
-}
 
-
-.colorSwitcher {
+.form__colorSwitcher {
     display: none;
     margin-top:5px;
 }
 
-.colorSwitcher.visibleColor {
+.form__colorSwitcher.visibleColor {
     display: inline-block;
 }
 
-.colorSwitcher__mainButton {
+.form__colorSwitcher-allButtons {
     margin-top:5px;
 }
-.colorSwitcher__mainButton :nth-child(n) {
+.form__colorSwitcher-button {
     margin: 5px;
     height: 20px;
     width: 20px;
     cursor: pointer;
 }
-.colorSwitcher__mainButton :first-child {
+
+.form__colorSwitcher-allButtons :first-child {
     background-color: red;
     margin-left: 10px;
 }
-.colorSwitcher__mainButton :nth-child(2) {
+.form__colorSwitcher-allButtons :nth-child(2) {
     background-color: green;
 }
 
-.colorSwitcher__mainButton :nth-child(3) {
+.form__colorSwitcher-allButtons :nth-child(3) {
     background-color: blue;
 }
 
-.colorSwitcher__button.shadow {
+.form__colorSwitcher-button.shadow {
     box-shadow: 0 0 0 4px black;
 }
 
-.mainTracker {
-    padding-bottom: 10px;
-}
-.mainTracker_weight {
-    /*background-color: yellow;*/
-    border:1px solid black;
-    /*/*flex container*/
+.form__tracker {
+    margin-top:5px;
     display:flex;
     flex-flow: column;
+    border:1px solid black;
 }
 
-.mainTracker_weight :first-child {
+.form__tracker :first-child {
     flex:1 100%;
     background-color: #ffffff;
     text-align: left;
     margin-bottom: 5px;
 }
-.mainTracker_weight__total {
+.form__tracker-header {
     padding-top:5px;
     padding-left: 3px;
+    padding-right:5px;
 }
 
-.kg {
+
+.form__tracker-span_kg {
     float:right;
-    padding-right: 5px;
 }
 
-.mainTracker_weight :nth-child(2) {
-    /*border:1px solid green;*/
+.form__tracker :nth-child(2) {
     flex:1 100%;
     background-color: #ffffff;
-
 }
-.mainTracker_weight__tracker .mainTracker_weight__tracker_horizon {
+
+.form__tracker .form__tracker-horizon {
     position: relative;
     display:block;
     background-color: black;
-    /*border:1px solid black;*/
     height: 1px;
     width: auto;
-
 }
 
-/*.mainTracker_weight__tracker input {*/
-    /*opacity: 0;*/
-    /*position: absolute;*/
-    /*width: 0;*/
-    /*height: 0;*/
-/*}*/
-
-.mainTracker_weight__tracker .mainTracker_weight__tracker_horizon_dot {
+.form__tracker .form__tracker-dot {
     position: absolute;
     width: 14px;
     height: 14px;
@@ -256,18 +230,14 @@
 }
 
 
-/*.mainTracker_weight__total .mainTracker_weight__total_span_kg {*/
-    /*justify-content: flex-end;*/
-/*}*/
-
-.mainTracker_weight .mainTracker_weight__slider-label {
+.form__tracker-footer {
     display:flex;
     justify-content: space-between;
     width: 100%;
     margin-top:0;
 }
 
-.mainTracker_weight__slider-label :nth-child(n) {
+.form__tracker-footer :nth-child(n) {
     flex:1;
     cursor: pointer;
     color: #919191;
@@ -275,12 +245,12 @@
 }
 
 
-.sendForm {
+.form__sendForm {
     display:block;
-    padding-top:10px;
+    margin-top:10px;
 }
 
-.sendForm input {
+.form__sendForm input {
     background-color:#7fbf4d;
     border: 1px solid #63a62f;
     border-bottom: 1px solid #5b992b;
@@ -293,13 +263,13 @@
     text-shadow: 0 -1px 0 #4c9021;
     width: 150px;
 }
-.sendForm input:hover {
+.form__sendForm input:hover {
     background-color: #76b347;
     box-shadow: inset 0 1px 0 0 #8dbf67;
     cursor: pointer;
 }
 
-.sendForm input:active {
+.form__sendForm input:active {
     border: 1px solid #5b992b;
     border-bottom: 1px solid #538c27;
     box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
