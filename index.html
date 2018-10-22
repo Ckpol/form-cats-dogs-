@@ -6,6 +6,10 @@
     <title>Parcel Sandbox</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form_photo/form_photo.css">
+    <link rel="stylesheet" href="form__colorSwitcher/form__colorSwitcher.css">
+    <link rel="stylesheet" href="form_tracker/form__tracker.css">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
 </head>
 
 <body>
@@ -64,7 +68,7 @@
     <div class="form__tracker">
 
             <div class="form__tracker-header">Вес
-                <span class="form__tracker-span form__tracker-span_header">
+                <span class="form__tracker-span form__tracker-span_header">10
                     <!--<input name="weight">123456-->
 
                 </span>
@@ -72,21 +76,19 @@
             </div>
 
             <div class="form__tracker-slider">
+                <div class="form__tracker-dot"></div>
                 <div class="form__tracker-horizon">
-                    <div class="form__tracker-dot">
-                        <span><span></span></span>
-                    </div>
                     <div class="form__tracker-process"></div>
                 </div>
-                <input type="hidden" name="weight">
+                <input type="hidden" name="weight" value="10">
             </div>
 
             <div class="form__tracker-footer">
                 <div class="form__tracker-item form__tracker-item_first">10кг</div>
-                <div class="form__tracker-item form__tracker-item_second">35кг</div>
-                <div class="form__tracker-item form__tracker-item_third">75кг</div>
-                <div class="form__tracker-item form__tracker-item_fourth">110кг</div>
-                <div class="form__tracker-item form__tracker-item_fifth">150кг</div>
+                <div class="form__tracker-item form__tracker-item_second">50кг</div>
+                <div class="form__tracker-item form__tracker-item_third">90кг</div>
+                <div class="form__tracker-item form__tracker-item_fourth">135кг</div>
+                <div class="form__tracker-item form__tracker-item_fifth">190кг</div>
             </div>
 
     </div>
@@ -98,6 +100,9 @@
 </form>
 
 <script src="js.js"></script>
+<script src="form_photo/form_photo.js"></script>
+<script src="form__colorSwitcher/form__colorSwitcher.js"></script>
+<script src="form_tracker/form__tracker.js"></script>
 </body>
 
 </html>

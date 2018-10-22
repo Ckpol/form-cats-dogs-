@@ -2,52 +2,6 @@
     width: 200px;
 }
 
-.form__photo {
-    position: relative;
-    border: 2px dashed #99a0a8;
-    height: 100px;
-    width: 100px;
-    border-radius: 8px;
-    background-color: #e5ebf1;
-    color: #55677d;
-}
-
-.form__photo:hover {
-    background-color: #5181b8;
-    color:white;
-    border-color: white;
-}
-
-.form__photo.photo {
-    border:none;
-    background:none;
-}
-
-.form__photo-input {
-    display:none;
-}
-
-.form__photo-label {
-    position:absolute;
-    cursor: pointer;
-    font-size: 12pt;
-    width: 100%;
-    height: 100%;
-    background: 100% 100% no-repeat;
-    background-size: contain;
-}
-
-.form__photo-span {
-    display:block;
-    text-align: center;
-    padding-top:25px;
-}
-.form__photo-span.photo {
-    display:none;
-}
-
-
-
 .form__name {
     margin-top: 5px;
 }
@@ -101,7 +55,6 @@
     left:0;
 }
 
-
 .form__sexType-label:hover input ~ .form__sexType-radio {
     background-color: #FCE388;
 }
@@ -129,121 +82,15 @@
     background: #7E620C;
 }
 
-
 .form__select {
     display: none;
     margin-top:5px;
     margin-bottom: 5px;
 }
 
-
 .form__select.visible {
     display: inline-block;
 }
-
-
-.form__colorSwitcher {
-    display: none;
-    margin-top:5px;
-}
-
-.form__colorSwitcher.visibleColor {
-    display: inline-block;
-}
-
-.form__colorSwitcher-allButtons {
-    margin-top:5px;
-}
-.form__colorSwitcher-button {
-    margin: 5px;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-}
-
-.form__colorSwitcher-allButtons :first-child {
-    background-color: red;
-    margin-left: 10px;
-}
-.form__colorSwitcher-allButtons :nth-child(2) {
-    background-color: green;
-}
-
-.form__colorSwitcher-allButtons :nth-child(3) {
-    background-color: blue;
-}
-
-.form__colorSwitcher-button.shadow {
-    box-shadow: 0 0 0 4px black;
-}
-
-.form__tracker {
-    margin-top:5px;
-    display:flex;
-    flex-flow: column;
-    border:1px solid black;
-}
-
-.form__tracker :first-child {
-    flex:1 100%;
-    background-color: #ffffff;
-    text-align: left;
-    margin-bottom: 5px;
-}
-.form__tracker-header {
-    padding-top:5px;
-    padding-left: 3px;
-    padding-right:5px;
-}
-
-
-.form__tracker-span_kg {
-    float:right;
-}
-
-.form__tracker :nth-child(2) {
-    flex:1 100%;
-    background-color: #ffffff;
-}
-
-.form__tracker .form__tracker-horizon {
-    position: relative;
-    display:block;
-    background-color: black;
-    height: 1px;
-    width: auto;
-}
-
-.form__tracker .form__tracker-dot {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    top:-7px;
-    left:0;
-    background-color: #F9D443;
-    cursor: pointer;
-    transition-duration: 0s;
-    transform: translateX(0px);
-    margin-bottom: 0;
-    z-index: 10;
-}
-
-
-.form__tracker-footer {
-    display:flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top:0;
-}
-
-.form__tracker-footer :nth-child(n) {
-    flex:1;
-    cursor: pointer;
-    color: #919191;
-    font-size: 12px;
-}
-
 
 .form__sendForm {
     display:block;

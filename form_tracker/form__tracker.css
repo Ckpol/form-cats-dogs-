@@ -1,0 +1,73 @@
+.form__tracker {
+    margin-top:5px;
+    display:flex;
+    flex-flow: column;
+    border:1px solid black;
+}
+/*form__tracker-header*/
+
+.form__tracker-header {
+    flex:1 100%;
+    background-color: #ffffff;
+    text-align: left;
+    margin-bottom: 5px;
+    padding-top:5px;
+    padding-left: 3px;
+    padding-right:5px;
+}
+
+.form__tracker-span_kg {
+    float:right;
+}
+
+.form__tracker-slider {
+    background-color: #ffffff;
+    position:relative;
+    width:194px;
+    height: 2px;
+    margin-left: 2px;
+    z-index: 0;
+}
+
+.form__tracker .form__tracker-horizon {
+    position: absolute;
+    display:block;
+    background-color: black;
+    height: 1px;
+    width: 180px;
+    left:7px;
+}
+
+.form__tracker .form__tracker-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top:-7px;
+    /*change*/
+    left:0;
+    background-color: #F9D443;
+    cursor: pointer;
+    transition-duration: 0s;
+    transform: translateX(0px);
+    margin-bottom: 0;
+    z-index: 10;
+}
+
+.form__tracker-footer {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top:5px;
+}
+
+.form__tracker-footer :nth-child(n) {
+    flex:0 0 auto;
+    cursor: pointer;
+    color: #919191;
+    font-size: 12px;
+}
+
+.form__tracker .form__tracker-dot.animation {
+    transition-duration: 1s;
+}

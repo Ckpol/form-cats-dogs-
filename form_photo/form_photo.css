@@ -1,0 +1,43 @@
+.form__photo {
+    position: relative;
+    border: 2px dashed #99a0a8;
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #e5ebf1;
+    color: #55677d;
+}
+
+.form__photo:hover {
+    background-color: #5181b8;
+    color:white;
+    border-color: white;
+}
+
+.form__photo.photo {
+    border:none;
+    background:none;
+}
+
+.form__photo-input {
+    display:none;
+}
+
+.form__photo-label {
+    position:absolute;
+    cursor: pointer;
+    font-size: 12pt;
+    width: 100%;
+    height: 100%;
+    background: 100% 100% no-repeat;
+    background-size: contain;
+}
+
+.form__photo-span {
+    display:block;
+    text-align: center;
+    padding-top:25px;
+}
+.form__photo-span.photo {
+    display:none;
+}

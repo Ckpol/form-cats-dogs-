@@ -1,0 +1,34 @@
+.form__colorSwitcher {
+    display: none;
+    margin-top:5px;
+}
+
+.form__colorSwitcher.visibleColor {
+    display: inline-block;
+}
+
+.form__colorSwitcher-allButtons {
+    margin-top:5px;
+}
+.form__colorSwitcher-button {
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.form__colorSwitcher-allButtons :first-child {
+    background-color: red;
+    margin-left: 10px;
+}
+.form__colorSwitcher-allButtons :nth-child(2) {
+    background-color: green;
+}
+
+.form__colorSwitcher-allButtons :nth-child(3) {
+    background-color: blue;
+}
+
+.form__colorSwitcher-button.shadow {
+    box-shadow: 0 0 0 4px black;
+}
